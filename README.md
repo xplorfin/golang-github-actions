@@ -46,7 +46,7 @@ Use: [github.com/securego/gosec/cmd/gosec](https://github.com/securego/gosec)
 
 ```yaml
 name: static check
-on: pull_request
+on: push
 
 jobs:
   imports:
