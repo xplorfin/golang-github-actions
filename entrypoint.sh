@@ -26,6 +26,7 @@ send_comment() {
 	SHA=$(cat ${GITHUB_EVENT_PATH} | jq -r .commits[0].sha)
 	echo "SHA"
 	echo $SHA
+	cat $GITHUB_EVENT_PATH
 	COMMENTS_URL=$(echo $COMMENTS_URL | sed -En "s/{\/sha}/\/$SHA/p")
 	curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data "${PAYLOAD}" "${COMMENTS_URL}" 
 }
