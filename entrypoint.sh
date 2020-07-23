@@ -23,7 +23,7 @@ SUCCESS=0
 send_comment() {
 	PAYLOAD=$(echo '{}' | jq --arg body "${COMMENT}" '.body = $body')
 	COMMENTS_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .repository.commits_url)$(echo "/comments")
-	SHA=$(cat ${GITHUB_EVENT_PATH} | jq -r .commits[0].sha)
+	SHA=$(cat ${GITHUB_EVENT_PATH} | jq -r .commits[0].id)
 	echo "SHA"
 	echo $SHA
 	cat $GITHUB_EVENT_PATH
