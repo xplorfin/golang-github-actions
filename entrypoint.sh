@@ -22,7 +22,7 @@ SUCCESS=0
 # this function use ${GITHUB_TOKEN}, ${COMMENT} and ${GITHUB_EVENT_PATH}
 send_comment() {
 	PAYLOAD=$(echo '{}' | jq --arg body "${COMMENT}" '.body = $body')
-	COMMENTS_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .commits_url)$(echo "/comments")
+	COMMENTS_URL=$(cat ${GITHUB_EVENT_PATH} | jq -r .repository.commits_url)$(echo "/comments")
 	echo $COMMENTS_URL
 	curl -s -S -H "Authorization: token ${GITHUB_TOKEN}" --header "Content-Type: application/json" --data "${PAYLOAD}" "${COMMENTS_URL}" 
 }
