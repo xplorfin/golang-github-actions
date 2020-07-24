@@ -275,6 +275,15 @@ case ${RUN} in
 		mod_download
 		check_vet
 		;;
+	"all")
+		mod_download
+		check_errcheck
+		check_fmt
+		check_lint
+		check_sec
+		check_shadow
+		check_staticcheck
+		check_vet
 	* )
 		echo "Invalid command"
 		exit 1
