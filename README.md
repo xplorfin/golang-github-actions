@@ -1,7 +1,6 @@
 # Golang GitHub Actions
 
-static code analysis checker for golang. comments back on error to pull request.
-
+static code analysis checker for golang. comments back on error to a commit
 ## Runs
 
 ### Fmt
