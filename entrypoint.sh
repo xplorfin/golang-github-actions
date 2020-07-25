@@ -284,6 +284,7 @@ case ${RUN} in
 		check_shadow
 		check_staticcheck
 		check_vet
+		;;
 	* )
 		echo "Invalid command"
 		exit 1
